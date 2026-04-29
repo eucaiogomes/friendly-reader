@@ -2022,7 +2022,7 @@ const ContentCard: React.FC<{ item: ContentItem, variant?: string }> = ({ item, 
   // --- Avançado 7 (Poster) Edge Case ---
   if (isAvancado && subVariant === '7') {
     return (
-      <div className="group/card flex-shrink-0 w-[220px] h-[340px] relative rounded-2xl border border-slate-200/60 overflow-hidden cursor-pointer transition-all duration-300 hover:-translate-y-1"
+      <div className="group/card flex-shrink-0 w-[280px] h-[340px] relative rounded-2xl border border-slate-200/60 overflow-hidden cursor-pointer transition-all duration-300 hover:-translate-y-1"
            style={{ boxShadow: 'var(--shadow-subtle)' }}
            onMouseEnter={(e) => (e.currentTarget.style.boxShadow = 'var(--shadow-hover)')}
            onMouseLeave={(e) => (e.currentTarget.style.boxShadow = 'var(--shadow-subtle)')}>
@@ -2052,7 +2052,7 @@ const ContentCard: React.FC<{ item: ContentItem, variant?: string }> = ({ item, 
 
   return (
     <div
-      className="group/card flex-shrink-0 w-[220px] h-full bg-white rounded-2xl border border-slate-200/60 overflow-hidden flex flex-col cursor-pointer transition-all duration-300 hover:-translate-y-1"
+      className="group/card flex-shrink-0 w-[280px] h-full bg-white rounded-2xl border border-slate-200/60 overflow-hidden flex flex-col cursor-pointer transition-all duration-300 hover:-translate-y-1"
       style={{ boxShadow: 'var(--shadow-subtle)' }}
       onMouseEnter={(e) => (e.currentTarget.style.boxShadow = 'var(--shadow-hover)')}
       onMouseLeave={(e) => (e.currentTarget.style.boxShadow = 'var(--shadow-subtle)')}
