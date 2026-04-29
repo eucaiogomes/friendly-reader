@@ -2267,7 +2267,7 @@ const ContentSection: React.FC<{ section: Section }> = ({ section }) => {
           ))}
         </motion.div>
       ) : (
-        <div className="relative group lg:-ml-6 xl:-ml-10 lg:-mr-[340px] xl:-mr-[440px]">
+        <div className="relative group lg:-ml-8 xl:-ml-12 lg:-mr-[340px] xl:-mr-[440px]">
           <div
             onClick={() => scroll('left')}
             className="absolute left-0 top-0 bottom-6 w-16 bg-gradient-to-r from-[#041433]/40 to-transparent z-10 flex items-center justify-start opacity-0 group-hover:opacity-100 transition-opacity duration-300 cursor-pointer rounded-l-2xl"
@@ -2924,7 +2924,7 @@ export default function App() {
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                   <div className="flex flex-col lg:flex-row gap-8">
                     {/* Left Column: Content Sections */}
-                    <div className="flex-1 overflow-hidden">
+                    <div className="flex-1 min-w-0 overflow-visible">
                       {SECTIONS.filter((section) => section.variant === 'avancado-1').map((section) => (
                         <ContentSection key={section.id} section={section} />
                       ))}
