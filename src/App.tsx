@@ -2017,7 +2017,7 @@ const ContentCard: React.FC<{ item: ContentItem, variant?: string }> = ({ item, 
               <Code size={16} />
             </div>
             <span className="text-[10px] font-semibold text-[#08204D] bg-blue-50 border border-blue-100 px-2 py-1 rounded-full flex items-center gap-1">
-              <BookOpen size={10} /> Treinamentos
+              <BookOpen size={10} /> {item.type === 'TRAIL' ? 'Trilha' : 'Treinamentos'}
             </span>
           </div>
         )}
@@ -2046,7 +2046,7 @@ const ContentCard: React.FC<{ item: ContentItem, variant?: string }> = ({ item, 
               {/* Badges */}
               {((isCompleto && ['1', '3'].includes(subVariant)) || (isAvancado && ['1', '2', '4', '5', '6'].includes(subVariant))) && (
                 <span className="text-[10px] font-semibold text-[#08204D] bg-blue-50 border border-blue-100 px-2 py-1 rounded-full flex items-center gap-1 mt-0.5">
-                  <BookOpen size={10} /> Treinamentos
+                  <BookOpen size={10} /> {item.type === 'TRAIL' ? 'Trilha' : 'Treinamentos'}
                 </span>
               )}
 
