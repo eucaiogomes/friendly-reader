@@ -2267,7 +2267,7 @@ const ContentSection: React.FC<{ section: Section }> = ({ section }) => {
           ))}
         </motion.div>
       ) : (
-        <div className="relative group">
+        <div className="relative group lg:-mr-[180px] xl:-mr-[260px]">
           <div
             onClick={() => scroll('left')}
             className="absolute left-0 top-0 bottom-6 w-16 bg-gradient-to-r from-[#041433]/40 to-transparent z-10 flex items-center justify-start opacity-0 group-hover:opacity-100 transition-opacity duration-300 cursor-pointer rounded-l-2xl"
@@ -2277,7 +2277,7 @@ const ContentSection: React.FC<{ section: Section }> = ({ section }) => {
 
           <div
             id={`scroll-${section.id}`}
-            className="flex gap-5 overflow-x-auto pb-6 scrollbar-hide snap-x snap-mandatory pr-[20vw] sm:pr-[10vw] items-stretch"
+            className="flex gap-5 overflow-x-auto pb-6 scrollbar-hide snap-x snap-mandatory pr-16 items-stretch"
             style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
           >
             {section.items.map((item) => (
