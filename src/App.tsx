@@ -1617,6 +1617,70 @@ const Hero = ({ layoutVersion = 1 }: { layoutVersion?: number }) => {
     );
   }
 
+  const slides = [
+    {
+      id: 'slide-1',
+      badge: 'Plataforma Lector • Educação Corporativa',
+      title: (
+        <>
+          Diagnóstico do<br />
+          ambiente de trabalho<br />
+          <span className="text-gradient-orange">que transforma resultados.</span>
+        </>
+      ),
+      description:
+        'Desenvolva habilidades práticas e certificações alinhadas às necessidades da empresa. Um único ecossistema para conteúdo, trilhas e evolução contínua.',
+      card: (
+        <div className="relative rounded-3xl overflow-hidden aspect-[4/5] glass-dark">
+          <img
+            src={heroYoungProfessional}
+            alt="Profissional jovem"
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-navy-900/60 via-transparent to-transparent pointer-events-none" />
+        </div>
+      ),
+    },
+    {
+      id: 'slide-2',
+      badge: 'Novidade • Avaliação Copsoq',
+      title: (
+        <>
+          Avaliação <span className="text-gradient-orange">Copsoq</span><br />
+          já disponível
+        </>
+      ),
+      description:
+        'Mensure os fatores psicossociais do ambiente de trabalho com o instrumento Copsoq e gere planos de ação baseados em evidências.',
+      card: (
+        <div className="relative rounded-3xl overflow-hidden aspect-[4/5] p-6 flex flex-col justify-between"
+             style={{ background: 'linear-gradient(135deg, #08204D 0%, #0F2D6B 60%, #FF7A1A 140%)' }}>
+          <div className="flex items-center justify-between">
+            <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white/10 border border-white/15 text-white text-[10px] font-semibold tracking-wide">
+              <span className="w-1.5 h-1.5 rounded-full bg-orange-500" />
+              DISPONÍVEL AGORA
+            </span>
+            <Shield className="w-5 h-5 text-white/70" />
+          </div>
+          <div>
+            <p className="text-white/60 text-xs uppercase tracking-widest font-semibold">Avaliação</p>
+            <h3 className="mt-2 text-3xl font-display font-bold text-white leading-tight">
+              Copsoq
+            </h3>
+            <p className="mt-3 text-sm text-white/70 leading-relaxed">
+              Riscos psicossociais, clima e bem-estar em uma única jornada de aplicação.
+            </p>
+            <button className="mt-5 inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-orange-500 hover:bg-orange-600 transition-colors text-white text-sm font-semibold">
+              Iniciar avaliação <ChevronRight size={16} />
+            </button>
+          </div>
+        </div>
+      ),
+    },
+  ];
+
+  const slide = slides[currentBanner % slides.length];
+
   return (
     <div
       className="relative overflow-hidden"
@@ -1638,54 +1702,55 @@ const Hero = ({ layoutVersion = 1 }: { layoutVersion?: number }) => {
         }}
       />
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 lg:py-20">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-12">
+        <AnimatePresence mode="wait">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            key={slide.id}
+            initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="lg:col-span-7"
+            exit={{ opacity: 0, y: -12 }}
+            transition={{ duration: 0.5 }}
+            className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center"
           >
-            <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-white/80 text-xs font-medium tracking-wide backdrop-blur-sm">
-              <span className="w-1.5 h-1.5 rounded-full bg-orange-500" />
-              Plataforma Lector • Educação Corporativa
-            </span>
+            <div className="lg:col-span-7">
+              <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-white/80 text-xs font-medium tracking-wide backdrop-blur-sm">
+                <span className="w-1.5 h-1.5 rounded-full bg-orange-500" />
+                {slide.badge}
+              </span>
 
-            <h1 className="mt-6 text-4xl sm:text-5xl lg:text-6xl font-display font-bold text-white leading-[1.05] tracking-tight">
-              Diagnóstico do<br />
-              ambiente de trabalho<br />
-              <span className="text-gradient-orange">que transforma resultados.</span>
-            </h1>
+              <h1 className="mt-5 text-3xl sm:text-4xl lg:text-5xl font-display font-bold text-white leading-[1.05] tracking-tight">
+                {slide.title}
+              </h1>
 
-            <p className="mt-6 text-lg text-white/70 leading-relaxed max-w-xl">
-              Desenvolva habilidades práticas e certificações alinhadas às
-              necessidades da empresa. Um único ecossistema para conteúdo,
-              trilhas e evolução contínua.
-            </p>
+              <p className="mt-5 text-base lg:text-lg text-white/70 leading-relaxed max-w-xl">
+                {slide.description}
+              </p>
+            </div>
 
-          </motion.div>
-
-          {/* Right: Glass dark KPI / Banner card */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.15 }}
-            className="lg:col-span-5"
-          >
-            <div className="relative rounded-3xl overflow-hidden aspect-[4/5] glass-dark">
-              <img
-                src={heroYoungProfessional}
-                alt="Profissional jovem"
-                className="absolute inset-0 w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-navy-900/60 via-transparent to-transparent pointer-events-none" />
+            {/* Right: card */}
+            <div className="lg:col-span-5 max-w-sm w-full mx-auto lg:max-w-none">
+              {slide.card}
             </div>
           </motion.div>
+        </AnimatePresence>
+
+        {/* Dots */}
+        <div className="mt-6 flex justify-center gap-2">
+          {slides.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => setCurrentBanner(i)}
+              aria-label={`Ir para slide ${i + 1}`}
+              className={`h-2 rounded-full transition-all duration-300 ${
+                currentBanner % slides.length === i ? 'w-8 bg-orange-500' : 'w-2 bg-white/30 hover:bg-white/50'
+              }`}
+            />
+          ))}
         </div>
       </div>
 
       {/* Bottom fade transition into content section */}
-      <div className="h-12 bg-gradient-to-b from-transparent to-[#F7F9FC]" />
+      <div className="h-8 bg-gradient-to-b from-transparent to-[#F7F9FC]" />
     </div>
   );
 };
