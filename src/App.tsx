@@ -2267,7 +2267,7 @@ const ContentSection: React.FC<{ section: Section }> = ({ section }) => {
           ))}
         </motion.div>
       ) : (
-        <div className="relative group lg:-mr-[180px] xl:-mr-[260px]">
+        <div className="relative group lg:-mr-[340px] xl:-mr-[440px]">
           <div
             onClick={() => scroll('left')}
             className="absolute left-0 top-0 bottom-6 w-16 bg-gradient-to-r from-[#041433]/40 to-transparent z-10 flex items-center justify-start opacity-0 group-hover:opacity-100 transition-opacity duration-300 cursor-pointer rounded-l-2xl"
